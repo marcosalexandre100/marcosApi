@@ -1,0 +1,7 @@
+package br.com.desenvolvimento.marcosApi.services.expection;
+
+public class ObjectNotFoundException extends RuntimeException{
+    public ObjectNotFoundException(String message){
+        super(message);
+    }
+}
