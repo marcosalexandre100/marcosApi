@@ -1,5 +1,6 @@
 package br.com.desenvolvimento.marcosApi.resources.exceptions;
 
+import br.com.desenvolvimento.marcosApi.services.expection.DataIntegratyViolationException;
 import br.com.desenvolvimento.marcosApi.services.expection.ObjectNotFoundException;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.http.HttpStatus;
@@ -16,5 +17,12 @@ public class ResourceExceptionHandler {
         StandarError error =
                 new StandarError(LocalDateTime.now(), HttpStatus.NOT_FOUND.value(), ex.getMessage(), request.getRequestURI());
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(error);
+    }
+
+    @ExceptionHandler(DataIntegratyViolationException.class)
+    public ResponseEntity<StandarError>DataIntegratyViolatinException(DataIntegratyViolationException ex,HttpServletRequest request){
+        StandarError erro=
+                new StandarError(LocalDateTime.now(), HttpStatus.BAD_REQUEST.value(), ex.getMessage(), request.getRequestURI());
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(erro);
     }
 }

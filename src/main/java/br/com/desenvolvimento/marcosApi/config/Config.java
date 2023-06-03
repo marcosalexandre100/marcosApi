@@ -1,4 +1,4 @@
-package br.com.desenvolvimento.marcosApi;
+package br.com.desenvolvimento.marcosApi.config;
 
 import br.com.desenvolvimento.marcosApi.domain.Users;
 import br.com.desenvolvimento.marcosApi.repository.UserRepository;
